@@ -10,7 +10,7 @@ function getWinner(player, ordi) {
   } else if ((player === 0 && ordi === 2) || (player === 2 && ordi === 1) || (player === 1) && (ordi === 0)) {
     return result = 'Gagné'
   } else {
-    return result = 'perdu'
+    return result = 'Perdu'
   }
 }
 
@@ -22,10 +22,14 @@ export default function App() {
   const [player, setPlayer] = useState(null)
   const [ordinateur, setOrdinateur] = useState(null)
   const [vainqueur, setVainqueur] = useState(null)
+  const [scores, setScores] = useState([0, 0])
 
   function handleClick(index) {
     let random = randomResponse()
     const winner = getWinner(index, random)
+
+    if (winner === "Gagné") setScores(s => [s[0] + 1, s[1]])
+    else if (winner === "Perdu") setScores(s => [s[0], s[1] + 1])
   
     setPlayer(Responses[index])
     setOrdinateur(Responses[random])
@@ -47,6 +51,11 @@ export default function App() {
           <p>Vous avez joué : {player}</p>
     
           <p>{vainqueur}</p>
+
+          <p className="score">
+            Joueur : {scores[0]}<br />
+            Ordinateur : {scores[1]}
+          </p>
         </div>
       </div>
     </>
