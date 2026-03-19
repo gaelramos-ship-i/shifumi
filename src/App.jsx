@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./styles/app.scss"
 
 const Responses = ['pierre', 'feuille', 'ciseaux']
 
@@ -38,9 +39,9 @@ export default function App() {
 
   return (
     <>
-      <div>
+      <div className="container">
         <h1>Shifumi</h1>
-        <div>
+        <div className="content">
           {Responses.map((Response, index) => (
             <button key={index} onClick={() => handleClick(index, randomResponse())}>
               {Response}
@@ -49,10 +50,10 @@ export default function App() {
 
           <p>Ordinateur : {ordinateur}</p>
           <p>Vous avez joué : {player}</p>
-    
+          
           <p>{vainqueur}</p>
 
-          <p className="score">
+          <p>
             Joueur : {scores[0]}<br />
             Ordinateur : {scores[1]}
           </p>

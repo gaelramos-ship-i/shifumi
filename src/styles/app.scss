@@ -1,0 +1,98 @@
+// Variables pour un thème sombre et élégant
+$bg-color: #1a1a2e;
+$card-bg: #16213e;
+$primary-color: #0f3460;
+$accent-color: #e94560;
+$text-primary: #ffffff;
+$text-secondary: #a2a2c2;
+$win-color: #2ecc71;
+$lose-color: #e74c3c;
+$draw-color: #f1c40f;
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: $text-primary;
+}
+
+.container {
+  background: $card-bg;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  h1 {
+    margin-top: 0;
+    color: $accent-color;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.content {
+  button {
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    margin: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 darken($accent-color, 15%);
+
+    &:hover {
+      background-color: lighten($accent-color, 5%);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+
+  p {
+    margin: 20px 0;
+    color: $text-secondary;
+    font-size: 1rem;
+
+    strong, span {
+      color: $text-primary;
+    }
+
+    // Le résultat (Gagné/Perdu/Egalité)
+    &:nth-of-type(3) {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: $text-primary;
+      margin: 25px 0;
+      text-shadow: 0 0 10px rgba($accent-color, 0.3);
+    }
+  }
+
+  // Section Score
+  p:last-of-type {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.8;
+    color: $text-primary;
+    border: 1px dashed rgba($text-secondary, 0.2);
+    margin-top: 30px;
+  }
+}
