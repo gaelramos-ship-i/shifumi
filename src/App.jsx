@@ -3,23 +3,18 @@ import { useState } from "react"
 const Responses = ['pierre', 'feuille', 'ciseaux']
 
 function randomResponse() {
-  let randomRes = Math.floor(Math.random() * (2 - 0 + 1)) + 0
-  console.log(randomRes)
+  return Math.floor(Math.random() * (2 - 0 + 1)) + 0
 }
 
 export default function App() {
+  const [player, setPlayer] = useState(null)
+  const [ordinateur, setOrdinateur] = useState(null)
 
   function handleClick(index) {
+    let random = randomResponse()
 
-    if (index === 0) {
-      console.log(Responses[0])
-
-    } else if (index === 1) {
-      console.log(Responses[1])
-
-    } else if (index === 2) {
-      console.log(Responses[2])
-    }
+    setPlayer(Responses[index])
+    setOrdinateur(Responses[random])
   }
 
   return (
@@ -32,6 +27,9 @@ export default function App() {
               {Response}
             </button>
           ))}
+
+          <p>Ordinateur : {ordinateur}</p>
+          <p>Vous avez joué : {player}</p>
         </div>
       </div>
     </>
