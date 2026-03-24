@@ -96,3 +96,14 @@ body {
     margin-top: 30px;
   }
 }
+
+@media screen and (max-width:767px){
+  .container{
+    width: 72%;
+  }
+  .content button{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
